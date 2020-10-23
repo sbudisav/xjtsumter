@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('pages.blog', ['posts' => Post::latest()->get()]);
+        return view('blog.index', ['posts' => Post::latest()->get()]);
     }
 
     /**
@@ -25,6 +25,8 @@ class PostsController extends Controller
     public function create()
     {
         // Admin only
+
+        return view('blog.create');
     }
 
     /**
@@ -36,6 +38,24 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // Admin only
+
+        // Saving the post after validation 
+        // Might try to do this with livewire, if I like it haha
+
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required|max:255',
+        ]);
+
+        // This isn't working. 
+        $this->validatePost();
+
+        Post::create([
+            'user_id' => auth()->id(), 
+            'title' => $attributes['title'],
+            'body' => $attributes['body'],
+        ]);
+        return redirect('blog');
     }
 
     /**
@@ -49,7 +69,7 @@ class PostsController extends Controller
         $previous = Post::where('id', '<', $post->id)->first();
         $next = Post::where('id', '>', $post->id)->first();
 
-        return view('pages.blogpost', ['post' => $post])->with('previous', $previous)->with('next', $next);;
+        return view('blog.view', ['post' => $post])->with('previous', $previous)->with('next', $next);;
     }
 
     /**
@@ -60,7 +80,8 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        // Admin only
+        return view('blog.edit', ['post' => $post]);
     }
 
     /**
@@ -72,7 +93,8 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($this->validatePost());
+        return redirect($post->path());
     }
 
     /**
@@ -84,5 +106,15 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+
+    protected function validatePost(){
+        // Validate Admin only here too
+
+        return request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
     }
 }

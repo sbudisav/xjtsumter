@@ -19,4 +19,6 @@ class Post extends Model
     // Method post->comments() to return all of a posts comments
     return $this->hasMany(Comment::class);
   }
+
+  protected $fillable = ['title', 'body'];
 }
