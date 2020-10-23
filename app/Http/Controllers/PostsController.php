@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class PostsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all blog posts.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show form for creating a new blog post.
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,7 +31,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new blog post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -62,7 +62,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display single blog post.
      *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
@@ -76,7 +76,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing blog post.
      *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
@@ -88,7 +88,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the single blog post in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Post  $post
@@ -101,7 +101,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete blog post.
      *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response

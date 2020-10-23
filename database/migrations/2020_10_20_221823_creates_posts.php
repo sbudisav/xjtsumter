@@ -40,20 +40,19 @@ class CreatesPosts extends Migration
                 ->onDelete('cascade');
         });
 
-        Schema::create('follows', function (Blueprint $table) {
-            $table->primary(['user_id', 'followed_user_id']);
+        Schema::create('post_images', function (Blueprint $table) {
+            $table->id();
+            $table->string('post_image_path');
+            $table->string('caption')->nullable();
+
             $table->timestamps();
 
-            $table->foreignId('user_id')
+            $table->foreignId('post_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
-            $table->foreignId('followed_user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+                ->on('posts');
         });
+
+
     }
 
     /**
