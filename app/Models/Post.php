@@ -11,14 +11,12 @@ class Post extends Model
 
   public function path() {
 
-    return route('post.show', $this);
+    return route('blogpost', $this);
   }
 
   public function comments() {
 
     // Method post->comments() to return all of a posts comments
-    // Again not sure if eloquent is going to get the right table
-    // My guess is it will look for post_comments instead of just comments, but that might just be for belongs to many relationships. 
     return $this->hasMany(Comment::class);
   }
 }

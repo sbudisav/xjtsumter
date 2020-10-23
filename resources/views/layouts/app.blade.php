@@ -25,11 +25,11 @@
             <!-- Page Content -->
             <main>
                 <div class="lg:flex lg:justify-center">
-                    <div class="lg:w-32">
+                    <div class="lg:w-2 px-12 py-32">
                         @include ('_sidebar')
                     </div>
 
-                    <div class="lg:flex-1 lg:mx-10 lg:mb-10">
+                    <div class="lg:flex-1 ">
                         {{ $slot }}
                     </div>
                 </div>

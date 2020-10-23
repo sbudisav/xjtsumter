@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('blog', ['posts' => Post::latest()->get()]);
+        return view('pages.blog', ['posts' => Post::latest()->get()]);
     }
 
     /**
@@ -46,7 +46,10 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $previous = Post::where('id', '<', $post->id)->first();
+        $next = Post::where('id', '>', $post->id)->first();
+
+        return view('pages.blogpost', ['post' => $post])->with('previous', $previous)->with('next', $next);;
     }
 
     /**

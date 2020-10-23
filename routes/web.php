@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,8 @@ Route::get('/home', function() {
 })->name('homepage');
 
 
-Route::get('/blog', function() {
-    [PostsController::class, 'store'];
-})->name('blog');
+Route::get('/blog', [PostsController::class, 'index'])->name('blog');
+Route::get('/blog/post/{post}', [PostsController::class, 'show'])->name('blogpost');
 
 // Will need to limit these to admin view only. 
 Route::post('/blog', [PostsController::class, 'store']);

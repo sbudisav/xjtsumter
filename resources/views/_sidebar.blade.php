@@ -42,20 +42,22 @@
                 <button class="font-bold text-lg">Logout</button>
             </form>
         </li>
-    @endauth
+    @else
+        <li> 
+            <a href="{{ route('login') }}" class="font-bold text-lg mb-4 block">Login</a>
+        </li>
+
+        <li>
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="font-bold text-lg mb-4 block">Register</a>
+            @endif
+        </li>
+    @endif
 
 
     @auth
         <li>
             @livewire('navigation-dropdown')
         </li>
-    @else
-        <li> 
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-            @endif
-        </li>
-    @endif
+    @endauth
 </ul>
