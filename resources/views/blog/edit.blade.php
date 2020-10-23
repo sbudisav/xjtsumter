@@ -3,9 +3,9 @@
       <div class="content">
           <h2> New Post </h2>
 
-          <form method="POST" action="/blog/{{ $post->id }}">
+          <form method="POST" action="{{ route('blogpost.update', $post->id) }}" enctype="multipart/form-data"> 
           @csrf
-          @method('PUT')
+          @method('PATCH')
               <div class="field">
                   <label class="label" for="title">Title</label>
 
@@ -15,7 +15,7 @@
                         type="text" 
                         name="title" 
                         id="title"
-                        value="{{ old('title') }}">
+                        value="{{ $post->title }}">
 
                       @error('title')
                           <p class="help is-danger">{{ $errors->first('title') }}</p>
@@ -29,9 +29,9 @@
                   <div class="control">
                       <textarea 
                         class="post-text-box textarea" 
+                        type="text"
                         name="body" 
-                        id="body"
-                        value="{{ old('body') }}"></textarea>
+                        id="body">{{ $post->body }}</textarea>
 
                       <!-- This error auto fills if the page needs to request for invalid input data -->
                       @error('body')
@@ -42,7 +42,7 @@
 
               <div class="field is-grouped">
                   <div class="control">
-                      <button class="button is-link" type="submit">Submit</button>
+                      <button class="button is-link" type="submit">Save</button>
                   </div>
               </div>
           </form>

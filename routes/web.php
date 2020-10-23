@@ -29,8 +29,8 @@ Route::get('/blog/post/{post}', [PostsController::class, 'show'])->name('blogpos
 // Will need to limit these to admin view only. 
 Route::post('/blog', [PostsController::class, 'store']);
 Route::get('/blog/new', [PostsController::class, 'create']);
-Route::get('/blog/{post}/edit', [PostsController::class, 'edit']);
-Route::put('/blog/{post}', [PostsController::class, 'update']);
+Route::get('/blog/post/{post}/edit', [PostsController::class, 'edit'])->name('blogpost.edit');
+Route::patch('/blog/post/{post}', [PostsController::class, 'update'])->name('blogpost.update');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

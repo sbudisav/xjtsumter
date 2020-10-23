@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -48,10 +49,12 @@ class PostsController extends Controller
         ]);
 
         // This isn't working. 
-        $this->validatePost();
+        // $this->validatePost();
+
+        // dd(request());
 
         Post::create([
-            'user_id' => auth()->id(), 
+            'user_id' => Auth::id(), 
             'title' => $attributes['title'],
             'body' => $attributes['body'],
         ]);

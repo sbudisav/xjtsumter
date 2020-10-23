@@ -5,6 +5,9 @@
         <a href="{{ route('blog') }}" class="bg-white shadow hover:shadow-md"><p class="text-lg text-blue-800 font-bold flex items-center">Back</p>
         </a>
 
+        <a href="{{ $post->path() }}/edit" class="bg-white shadow hover:shadow-md"><p class="text-lg text-blue-800 font-bold flex items-center">Edit</p>
+        </a>
+
         <h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">
           {{ $post->title }}
         </h1>
