@@ -24,12 +24,12 @@
 
             <!-- Page Content -->
             <main>
-                <div class="lg:flex lg:justify-center">
-                    <div class="lg:w-2 px-12 py-32">
+                <div class="container flex mx-auto">
+                    <div class="px-12 py-32">
                         @include ('_sidebar')
                     </div>
 
-                    <div class="lg:flex-1 ">
+                    <div class="lg:flex-1">
                         {{ $slot }}
                     </div>
                 </div>

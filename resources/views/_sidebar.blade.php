@@ -25,7 +25,7 @@
 
     <li>
         <a class="font-bold text-lg mb-4 block" href="{{ route('blog') }}">
-            Store
+            Merch
         </a>
     </li>
 
