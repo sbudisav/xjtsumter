@@ -10,7 +10,6 @@ class PostsController extends Controller
 {
     /**
      * Display a listing of all blog posts.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -20,7 +19,6 @@ class PostsController extends Controller
 
     /**
      * Show form for creating a new blog post.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -32,7 +30,6 @@ class PostsController extends Controller
 
     /**
      * Store a new blog post in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -63,7 +60,6 @@ class PostsController extends Controller
 
     /**
      * Display single blog post.
-     *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
@@ -77,7 +73,6 @@ class PostsController extends Controller
 
     /**
      * Show the form for editing blog post.
-     *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
@@ -89,7 +84,6 @@ class PostsController extends Controller
 
     /**
      * Update the single blog post in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
@@ -102,7 +96,6 @@ class PostsController extends Controller
 
     /**
      * Delete blog post.
-     *
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */

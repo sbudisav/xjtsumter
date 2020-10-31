@@ -13,7 +13,7 @@ class CreateStoreFramework extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -33,24 +33,7 @@ class CreateStoreFramework extends Migration
 
             $table->foreignId('product_id')
                 ->references('id')
-                ->on('product');
-        });
-
-        Schema::create('order', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-
-            $table->string('address');
-            $table->string('confirmation_code');
-            $table->string('status');
-
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users');
-
-            $table->foreignId('product_id')
-                ->references('id')
-                ->on('product');
+                ->on('products');
         });
     }
 
@@ -61,6 +44,7 @@ class CreateStoreFramework extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('store_framework');
+        Schema::dropIfExists('project_images');
+        Schema::dropIfExists('projects');
     }
 }

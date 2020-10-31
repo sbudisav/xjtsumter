@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProject extends Migration
+class CreatesProjects extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProject extends Migration
      */
     public function up()
     {
-        Schema::create('project', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
@@ -28,9 +28,9 @@ class CreateProject extends Migration
 
             $table->timestamps();
 
-            $table->foreignId('post_id')
+            $table->foreignId('project_id')
                 ->references('id')
-                ->on('posts');
+                ->on('projects');
         });
     }
 
@@ -41,6 +41,7 @@ class CreateProject extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('project_images');
         Schema::dropIfExists('project');
     }
 }

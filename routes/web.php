@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\FriendsController;
 
 /*
@@ -33,6 +34,7 @@ Route::get('/blog/new', [PostsController::class, 'create']);
 Route::get('/blog/post/{post}/edit', [PostsController::class, 'edit'])->name('blogpost.edit');
 Route::patch('/blog/post/{post}', [PostsController::class, 'update'])->name('blogpost.update');
 
+Route::get('/store', [ProductsController::class, 'index']);
 
 Route::get('/myfriends', [FriendsController::class, 'index'])->name('myfriends');
 

@@ -62,6 +62,8 @@ class CreatesPosts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('post_images');
+        Schema::dropIfExists('comments');
+        Schema::dropIfExists('posts');
     }
 }

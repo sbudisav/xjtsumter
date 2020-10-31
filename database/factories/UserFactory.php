@@ -30,9 +30,9 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
 
             // This aint working
-            'profile_photo_path' => $faker->image('images'),
-            $filePath = storage_path('images');
-            'profile_photo_path' => $faker->image($filePath,400,300)
+            // 'profile_photo_path' => $faker->image('images'),
+            // $filePath = storage_path('images');
+            // 'profile_photo_path' => $faker->image($filePath,400,300)
         ];
     }
 }
