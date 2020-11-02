@@ -12,7 +12,7 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return view('store.index', ['products' => Product::latest()->get()]);
     }
 

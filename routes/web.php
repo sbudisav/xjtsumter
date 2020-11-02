@@ -34,9 +34,9 @@ Route::get('/blog/new', [PostsController::class, 'create']);
 Route::get('/blog/post/{post}/edit', [PostsController::class, 'edit'])->name('blogpost.edit');
 Route::patch('/blog/post/{post}', [PostsController::class, 'update'])->name('blogpost.update');
 
-Route::get('/store', [ProductsController::class, 'index']);
+Route::get('/store', [ProductsController::class, 'index'])->name('store');
 
-Route::get('/myfriends', [FriendsController::class, 'index'])->name('myfriends');
+Route::get('/myfriends', [FriendsController::class, 'index'])->name('my_friends');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

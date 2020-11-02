@@ -18,13 +18,13 @@
     </li>
 
     <li>
-        <a class="font-bold text-lg mb-4 block" href="{{ route('myfriends') }}">
+        <a class="font-bold text-lg mb-4 block" href="{{ route('my_friends') }}">
             Friends
         </a>
     </li>
 
     <li>
-        <a class="font-bold text-lg mb-4 block" href="{{ route('blog') }}">
+        <a class="font-bold text-lg mb-4 block" href="{{ route('store') }}">
             Merch
         </a>
     </li>
